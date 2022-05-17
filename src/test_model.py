@@ -1,6 +1,4 @@
-
 import pandas as pd
-from sklearn.neighbors import KNeighborsClassifier as KNN
 
 def test_model(knn, path):
 
