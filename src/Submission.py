@@ -67,8 +67,8 @@ class Submission:
         y = self.__model.predict(test_data)
 
         """ write results """
-        # result = pd.DataFrame({'Test_index': list(test_data.index.values), 'Insect': y})
-        # result.to_csv('results.csv')
+        result = pd.DataFrame({'Test_index': list(test_data.index.values), 'Insect': y})
+        result.to_csv('results.csv')
 
     def ___store_paths(self):
 
