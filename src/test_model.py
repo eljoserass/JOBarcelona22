@@ -1,17 +1,19 @@
-import pickle
+
 import pandas as pd
+from sklearn.neighbors import KNeighborsClassifier as KNN
 
-#insects_clusters_labels = {
-#               2=1,
-#               0=0,
-#               2=1
-#               }
+def test_model(knn, path):
 
-test_data = pd.read_csv('test_x.csv', index_col=0, parse_dates=True)
+    # get testing dataset
+    test_data = pd.read_csv(path, index_col=0, parse_dates=True)
 
-loaded_model = pickle.load(open('model.sav', 'rb'))
-# result = loaded_model.score(X_test, Y_test)
-# print(result)
+    # clean time data
+    test_data['Minutes'] = (test_data['Hour']*60) + test_data['Minutes']
+    del test_data['Hour']
 
-test_data['Minutes'] = (test_data['Hour']*60) + test_data['Minutes']
-del test_data['Hour']
+    # get prediciton target
+    y = knn.predict(test_data)
+
+    # write results
+    result = pd.DataFrame({'Test_index': list(test_data.index.values), 'Insect': y})
+    result.to_csv('results.csv')
