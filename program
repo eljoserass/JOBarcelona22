@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+##
+## DATA-SCIENCE PROJECT, 2021
+## JOBarcelona22
+## File description: main function
+## Submission.py
+##
+
+from src.Submission import Submission
+
+def main():
+
+    submission = Submission()
+    submission.run()
+    exit (0)
+
+if __name__ == '__main__':
+    main()
