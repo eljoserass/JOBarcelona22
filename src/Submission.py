@@ -66,7 +66,7 @@ class Submission:
 
         """ write results """
         result = pd.DataFrame({'Test_index': list(test_data.index.values), 'Insect': y})
-        result.to_csv('results.csv')
+        result.to_csv('results.csv', index=False)
 
     def ___store_paths(self):
 
@@ -86,7 +86,8 @@ class Submission:
 
     def helper(self):
         print ("USAGE")
-        print("\tpython3 submission.py --train <path_to_train_dataset.csv> --test <path_to_test_dataset.csv>")
+        print("\t./program --train <path_to_train_dataset.csv> --test <path_to_test_dataset.csv>")
+        print("\t./program")
         print("DESCRIPTION")
         print("\tRun to train model on custom dataset or to re-train the model on default datasets")
         print("\tIf no argument is provided, the program will run with the defaults .csv in the /datasets folder")
