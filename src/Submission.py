@@ -10,24 +10,23 @@ from sklearn.neighbors import KNeighborsClassifier as KNN
 from sklearn.metrics import f1_score
 from sys import argv as av
 
-NB_INSECT_TYPES = 3
+OPTIMUM_N_NEIGHBORS = 3
 
 class Submission:
 
     def __init__(self):
         self.__test_path = 'datasets/test_x.csv'
         self.__train_path = 'datasets/train.csv'
-        self.__model = KNN(n_neighbors=NB_INSECT_TYPES)
+        self.__model = KNN(n_neighbors=OPTIMUM_N_NEIGHBORS)
 
-    
     def __train_model(self):
 
-        '''
+        """
             Solution for classification problem.
             This function train a K-Nearest Neighbors
-        '''
+        """
 
-        '''get training dataset'''
+        """ get training dataset """
         training_data = pd.read_csv(self.__train_path, index_col=0, parse_dates=True)
 
         """ clean time data """
@@ -44,7 +43,6 @@ class Submission:
         y = self.__model.predict(x)
 
         print ('f1_score:', f1_score(training_data['Insect'], y, average='macro'))
-
 
     def __test_model(self):
 
