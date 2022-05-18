@@ -23,7 +23,7 @@ It uses some python dependencies. These are the commands to install them in a de
     
 ## Usage/Examples
 
-```bash
+```txt
 USAGE
         ./program --train <path_to_train_dataset.csv> --test <path_to_test_dataset.csv>
 DESCRIPTION
