@@ -9,7 +9,6 @@
 from src.Submission import Submission
 
 def main():
-
     submission = Submission()
     submission.run()
     exit (0)
