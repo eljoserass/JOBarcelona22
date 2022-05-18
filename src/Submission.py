@@ -36,7 +36,7 @@ class Submission:
         """ get attribute vector """
         x = training_data.iloc[:,0:7]
 
-        """ initialize knn object and train model """
+        """ initialize knn object and fit data into the model """
         self.__model.fit(x, training_data['Insect'])
 
         """ predict target to test score with previously seen data """
@@ -49,9 +49,9 @@ class Submission:
         """
             Function to use the trained model for making predictions with unseen data
             Write results in results.csv in this format:
-            ,Test_index,Insect
-            0,7000,1
-            1,7001,0
+            Test_index,Insect
+            7000,1
+            7001,0
         """
 
         """ get testing dataset """
@@ -86,11 +86,11 @@ class Submission:
 
     def helper(self):
         print ("USAGE")
-        print("\t./program --train <path_to_train_dataset.csv> --test <path_to_test_dataset.csv>")
-        print("\t./program")
-        print("DESCRIPTION")
-        print("\tRun to train model on custom dataset or to re-train the model on default datasets")
-        print("\tIf no argument is provided, the program will run with the defaults .csv in the /datasets folder")
+        print ("\t./program --train <path_to_train_dataset.csv> --test <path_to_test_dataset.csv>")
+        print ("DESCRIPTION")
+        print ("\tUse --train and --test to train and test model on custom dataset")
+        print ("\tIf no argument is provided, the program will run with the defaults .csv in the /datasets folder")
+        print ("\tThe results will be written in a .csv file called results.csv")
 
 
     def run(self):
